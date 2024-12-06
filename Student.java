@@ -1,44 +1,32 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Student {
-    private String name;
     private String studentId;
-    private List<Course> courses;
-
+    private String name;
+    
     // Constructor
-    public Student(String name, String studentId) {
-        this.name = name;
+    public Student(String studentId, String name) {
         this.studentId = studentId;
-        this.courses = new ArrayList<>();
+        this.name = name;
     }
 
-    // Getters
-    public String getName() {
-        return name;
-    }
-
+    // Getters and Setters
     public String getStudentId() {
         return studentId;
     }
 
-    // Method to enroll a student in a course
-    public void enrollInCourse(Course course) {
-        courses.add(course);
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    // Method to display student details and enrolled courses
-    public void displayStudentDetails() {
-        System.out.println("Student Name: " + name);
-        System.out.println("Student ID: " + studentId);
-        System.out.println("Enrolled Courses:");
-        if (courses.isEmpty()) {
-            System.out.println("No courses enrolled.");
-        } else {
-            for (Course course : courses) {
-                course.displayCourseDetails();
-                System.out.println();
-            }
-        }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    // Method to enroll in a course
+    public Enrollment enrollInCourse(Course course) {
+        return new Enrollment(this, course);
     }
 }

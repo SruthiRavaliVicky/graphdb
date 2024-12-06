@@ -1,32 +1,27 @@
 public class Course {
+    private String courseId;
     private String courseName;
-    private String courseCode;
-    private int credits;
-
+    
     // Constructor
-    public Course(String courseName, String courseCode, int credits) {
+    public Course(String courseId, String courseName) {
+        this.courseId = courseId;
         this.courseName = courseName;
-        this.courseCode = courseCode;
-        this.credits = credits;
     }
 
-    // Getters
+    // Getters and Setters
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
+
     public String getCourseName() {
         return courseName;
     }
 
-    public String getCourseCode() {
-        return courseCode;
-    }
-
-    public int getCredits() {
-        return credits;
-    }
-
-    // Method to display course details
-    public void displayCourseDetails() {
-        System.out.println("Course Name: " + courseName);
-        System.out.println("Course Code: " + courseCode);
-        System.out.println("Credits: " + credits);
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 }
